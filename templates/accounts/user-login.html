@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- ***** Login Form Starts ***** -->
+<div class="centered-wrapper">
+        <div class="login-register-box">
+
+            <h4>Login</h4>
+
+            <form id="login" action="" method="post">
+                {% csrf_token %}
+                {{ form.email.label }}
+                {{ form.email.errors }}
+                {{ form.email }}
+                {{ form.password.label }}
+                {{ form.password.errors }}
+                {{ form.password }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- ***** Login Form Ends ***** -->
+
+    <div>
+            <!-- Link to Register Page -->
+            <h6>Don't have an account? <a href="{% url 'register' %}">Register</a></h6>
+    </div>
+
+
+
+{% endblock %}

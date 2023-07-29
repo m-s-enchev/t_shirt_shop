@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- ***** Register Form Starts ***** -->
+<div class="centered-wrapper">
+        <div class="login-register-box">
+
+            <h4>Register a profile</h4>
+            <h7>Having a profile allows you to make custom designs</h7>
+
+            <form id="register" action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div style="margin-top: 15px;">
+                        <div style="font-weight: bold;">
+                        {{ field.label }}
+                        </div>
+                        {{ field.errors }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- ***** Register Form Ends ***** -->
+
+    <div>
+            <!-- Link to Login Page -->
+            <h6>Have an account? <a href="{% url 'login' %}">Log in</a></h6>
+    </div>
+
+
+
+{% endblock %}
