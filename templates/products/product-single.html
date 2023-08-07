@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Product Area Starts -->
+    <section class="section" id="product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="left-images">
+                        <img src="{{product.image.url}}" alt="product image">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="right-content">
+                        <h4>{{ product.name}}</h4>
+                        <span class="price">${{ product.price }}</span>
+                        <span>{{ product.description}}</span>
+                        <div class="buy-button-container">
+                        <form method="post" action="{% url 'add_to_shopping_cart' product.pk %}">
+                            {% csrf_token %}
+                            {{ form }}
+                            <div class="quantity-field">
+                                <h6 class="quantity-label">Qty:</h6>
+                                <input type="number" name="quantity" value="{{form.quantity|default:1}}" min="1" step="1" required>
+                            </div>
+                            <input type="submit" value="Buy">
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Area Ends -->
+
+{% endblock %}
