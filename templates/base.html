@@ -56,7 +56,9 @@
                             <li><a href="#">Profile</a></li>
                             <li><a href="{% url 'logout' %}">Logout</a></li>
                             {% endif %}
-
+                            <a href="{% url 'view_cart' %}" style = "margin-left: 20px;">
+                            <img src="{% static 'images/shopping-cart-icon1.jpg' %}">
+                        </a>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

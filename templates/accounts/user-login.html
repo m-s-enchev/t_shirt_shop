@@ -7,14 +7,20 @@
 
             <h4>Login</h4>
 
-            <form id="login" action="" method="post">
+            <form id="login" method="post">
                 {% csrf_token %}
-                {{ form.email.label }}
-                {{ form.email.errors }}
-                {{ form.email }}
-                {{ form.password.label }}
-                {{ form.password.errors }}
-                {{ form.password }}
+                {% if form.errors %}
+                    <div class="errorlist">Invalid email or password!</div>
+                {% endif %}
+                {% for field in form %}
+                    <div style="margin-top: 15px;">
+                        <div style="font-weight: bold;">
+                        {{ field.label }}
+                        </div>
+                        {{ field.errors }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -23,7 +29,7 @@
 
     <div>
             <!-- Link to Register Page -->
-            <h6>Don't have an account? <a href="{% url 'register' %}">Register</a></h6>
+            <h6 style="text-align: center">Don't have an account? <a href="{% url 'register' %}">Register</a></h6>
     </div>
 
 
