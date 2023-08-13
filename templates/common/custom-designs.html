@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- ***** About Area Starts ***** -->
+    <div class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-image">
+                        <img src="{% static 'images/custom_design.jpg' %}" alt="team image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <h4>Want to make your own?</h4>
+                        <p>Unleash Your Creativity: Design Your Own T-Shirts!</p>
+                        <span>At our web store, we believe that every t-shirt is a canvas waiting for your unique touch.
+                            Express yourself like never before by uploading your own designs and turning them into
+                            wearable art. Whether it's a personal statement, a cherished memory, or a spark of
+                            imagination, our user-friendly design tool lets you bring your vision to life.
+                            Create a one-of-a-kind masterpiece that reflects your style and personality. Customize
+                            colors, graphics, and text to make a t-shirt that's uniquely yours. With endless
+                            possibilities and top-quality printing, you'll be proud to wear your self-designed tee
+                            everywhere you go. Experience the joy of wearing a shirt that tells your story. Start
+                            designing today and let your creativity shine on the fabric of fashion!"</span>
+                        <p>If you register a profile, you can upload your own designs!</p>
+                        <p>Don't have an account yet?  <a href="{% url 'register' %}">Register</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** About Area Ends ***** -->
+
+{% endblock %}
