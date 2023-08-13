@@ -5,5 +5,9 @@ from t_shirt_shop.products.models import Products, Categories
 # Register your models here.
 
 
-admin.site.register(Products)
+class ProductsAdmin(admin.ModelAdmin):
+    list_display = ['name', 'category', 'price']
+
+
+admin.site.register(Products, ProductsAdmin)
 admin.site.register(Categories)
