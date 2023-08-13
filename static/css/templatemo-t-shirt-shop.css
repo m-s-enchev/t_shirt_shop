@@ -1169,7 +1169,11 @@ Kids
 }
 
 
-
+.product-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
 
 
 /* 
@@ -1456,10 +1460,26 @@ Shopping cart
 
 
 #shopping-cart-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+#shopping-cart-page .box {
+  width: 780px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(156, 152, 152);
+  padding: 40px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px #888888;
+  margin: 0 auto;
+}
+
+#shopping-cart-page .box label {
+    display: none;
 }
 
 #shopping-cart-page h3 {
@@ -1512,6 +1532,7 @@ Shopping cart
 #shopping-cart-page input {
   width: 60px;
   text-align: center;
+  background-color: rgb(240, 230, 230);
 }
 
 #shopping-cart-page h4 {
@@ -1543,7 +1564,7 @@ Shopping cart
   font-size: 18px;
   cursor: pointer;
   font-weight: 500;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-left: 590px;
 }
 
@@ -1555,28 +1576,87 @@ Shopping cart
 }
 
 
-/* 
+/*
+---------------------------------------------
+Shipping details
+---------------------------------------------
+*/
+
+
+#shipping-details-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+
+}
+
+
+#shipping-details-page h3 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+
+#shipping-details-page .box {
+  width: 500px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(156, 152, 152);
+  padding: 40px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px #888888;
+  margin: 0 auto;
+}
+
+#shipping-details-page .box label {
+    display: none;
+}
+
+#shipping-details-page .box input {
+    background-color: rgb(240, 230, 230);
+    border: 0.1px solid rgb(186, 184, 184);
+    border-radius: 3px;
+    height: 30px;
+    width: 100%;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+#shipping-details-page button {
+  color: #2a2a2a;
+  border: 1px solid #2a2a2a;
+  width: 110px;
+  background-color: white;
+  padding: 7px 7px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 40px;
+  margin-left: 310px;
+}
+
+#shipping-details-page button:hover {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+/*
 ---------------------------------------------
 About Us Page
 --------------------------------------------- 
 */
 
-.about-page-heading {
-  margin-top: 160px;
-  margin-bottom: 30px;
-  background-image: url(../images/about-us-page-heading.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 
 .about-us {
-  margin-top: 80px;
+  margin-top: 150px;
+  height: 80vh;
 }
 
 .about-us .left-image img {
   width: 100%;
   overflow: hidden;
+  margin-top: 10px;
 }
 
 .about-us .right-content {
@@ -1590,33 +1670,17 @@ About Us Page
 }
 
 .about-us .right-content span {
-  font-size: 14px;
-  color: #aaaaaa;
+  font-size: 15px;
+  color: #464646;
   font-weight: 500;
   display: block;
   margin-top: 25px;
 }
 
-.about-us .right-content .quote {
-  margin-top: 25px;
-}
-
-.about-us .right-content .quote i {
-  float: left;
-  font-size: 32px;
-  margin-right: 15px;
-  margin-top: 10px;
-}
-
-.about-us .right-content .quote p {
-  font-style: italic;
-  color: #2a2a2a;
-  font-weight: 500;
-}
 
 .about-us .right-content p {
-  font-size: 14px;
-  color: #aaaaaa;
+  font-size: 15px;
+  color: #464646;
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1650,135 +1714,78 @@ About Us Page
   color: #2a2a2a;
 }
 
-.our-team {
-  margin-top: 100px;
-  padding-top: 90px;
-  padding-bottom: 90px;
+
+/*
+---------------------------------------------
+FAQ
+---------------------------------------------
+*/
+
+
+.faq {
+  margin-top: 150px;
+  height: 100vh;
+  margin-bottom: 200px;
+}
+
+
+
+.faq .right-content {
+  margin-left: 30px;
+}
+
+.faq .right-content h4 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+.faq .right-content span {
+  font-size: 15px;
+  color: #5e5e5e;
+  font-weight: 500;
+  display: block;
+  margin-top: 5px;
+}
+
+
+.faq .right-content p {
+  font-size: 17px;
+  color: #464646;
+  font-weight: 600;
+  display: block;
+  margin-top: 35px;
+}
+
+.faq .right-content ul {
   border-top: 3px dotted #eee;
+  margin-top: 30px;
+  padding-top: 30px;
 }
 
-.our-team .section-heading {
-  margin-bottom: 60px;
-  text-align: center;
-}
-
-.our-team .section-heading h2 {
-  margin-bottom: 10px;
-}
-
-.our-team .team-item .thumb {
-  position: relative;
-}
-
-.our-team .team-item .thumb img {
-  width: 100%;
-  overflow: hidden;
-}
-
-.our-team .team-item .thumb .hover-effect {
-  position: absolute;
-  background-color: rgba(0,0,0,0.9);
-  width: 100%;
-  text-align: center;
-  top: 0;
-  bottom: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: all .3s;
-}
-
-.our-team .team-item .thumb:hover .hover-effect {
-  opacity: 1;
-  visibility: visible;
-}
-
-.our-team .team-item .thumb .hover-effect .inner-content {
-  position: absolute;
-  top: 50%;
-  text-align: center;
-  width: 100%;
-  transform: translateY(-22px);
-}
-
-.our-team .team-item .thumb .hover-effect .inner-content ul li {
+.faq .right-content ul li {
   display: inline-block;
-  margin: 0px 5px;
+  margin-right: 5px;
 }
 
-.our-team .team-item .thumb .hover-effect .inner-content ul li a {
+.faq .right-content ul li a {
   width: 44px;
   height: 44px;
-  background-color: #fff;
-  color: #2a2a2a;
+  background-color: #2a2a2a;
+  color: #fff;
   display: inline-block;
   text-align: center;
   line-height: 44px;
   border-radius: 50%;
-  transition: all .3s;
+  transition: all .5s;
 }
 
-.our-team .team-item .thumb .hover-effect .inner-content ul li a:hover {
-  background-color: #2a2a2a;
-  color: #fff;
-}
-
-.our-team .team-item .down-content {
-  text-align: center;
-  padding-top: 25px;
-}
-
-.our-team .team-item .down-content h4 {
-  font-size: 24px;
+.faq .right-content ul li a:hover {
+  background-color: #eee;
   color: #2a2a2a;
-  font-weight: 700;
-  margin-bottom: 5px;
 }
 
-.our-team .team-item .down-content span {
-  font-size: 14px;
-  color: #a1a1a1;
-  font-weight: 500;
-  display: block;
-  font-style: italic;
-}
 
-.our-services {
-  padding-top: 90px;
-  padding-bottom: 90px;
-  border-top: 3px dotted #eee;
-  border-bottom: 3px dotted #eee;
-}
-
-.our-services .section-heading {
-  margin-bottom: 60px;
-  text-align: center;
-}
-
-.our-services .section-heading h2 {
-  margin-bottom: 10px;
-}
-
-.our-services .service-item {
-  padding: 30px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.10);
-  text-align: center;
-}
-
-.our-services .service-item img {
-  width: 100%;
-  overflow: hidden;
-}
-
-.our-services .service-item h4 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #2a2a2a;
-  margin-bottom: 20px;
-}
-
-.our-services .service-item p {
-  margin-bottom: 25px;
-}
 
 
 
@@ -1789,18 +1796,21 @@ contact Us Page
 */
 
 .contact-us {
-  margin-top: 90px;
+  margin-top: 150px;
   border-bottom: 3px dotted #eee;
-  padding-bottom: 90px;
+  height: 50vh;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-us .section-heading {
   margin-bottom: 40px;
 }
 
-.contact-us #map {
-  margin-right: 30px;
-}
 
 .contact-us form input {
   width: 100%;
@@ -1814,12 +1824,10 @@ contact Us Page
   border-radius: 0px;
   border: 1px solid #7a7a7a;
   box-shadow: none;
+  justify-content: center;
+
 }
 
-.contact-us form input::focus {
-  border-color: #2a2a2a;
-  border-radius: 0px;
-}
 
 .contact-us form textarea {
   width: 100%;
@@ -1839,30 +1847,24 @@ contact Us Page
   box-shadow: none;
 }
 
-.contact-us form textarea::focus {
-  border-color: #2a2a2a;
-  border-radius: 0px;
-}
 
 .contact-us form button {
-  width: 44px;
-  height: 44px;
-  display: inline-block;
-  text-align: center;
-  line-height: 44px;
-  background-color: #2a2a2a;
-  box-shadow: none;
-  border: 1px solid transparent;
-  color: #fff;
-  transition: all 0.3s;
+  color: #2a2a2a;
+  border: 1px solid #2a2a2a;
+  width: 110px;
+  background-color: white;
+  padding: 7px 7px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-left: 590px;
 }
 
 .contact-us form button:hover {
-  background-color: #fff;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
+    background-color: #2a2a2a;
+    color: #fff;
 }
-
 
 /* 
 ---------------------------------------------
