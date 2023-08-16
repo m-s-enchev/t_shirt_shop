@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     't_shirt_shop.products',
     't_shirt_shop.orders',
     't_shirt_shop.shopping_cart',
+    't_shirt_shop.contact_form_messages',
+
 ]
 
 MIDDLEWARE = [
@@ -81,9 +83,13 @@ WSGI_APPLICATION = 't_shirt_shop.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "t_shirt_shop_database",
+        "USER": "mydatabaseuser",
+        "PASSWORD": "mypassword",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 

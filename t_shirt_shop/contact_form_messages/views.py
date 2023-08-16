@@ -19,4 +19,4 @@ def contact_messages(request):
         'form': form
     }
 
-    return render(request, 'contact-us.html', context=context)
+    return render(request, 'common/contact-us.html', context=context)

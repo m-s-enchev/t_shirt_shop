@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import BaseUserCreationForm, AuthenticationForm
 from django import forms
+from django.contrib.auth.models import User
 
-from t_shirt_shop.accounts.models import ShopUserModel
+from t_shirt_shop.accounts.models import ShopUserModel, UserProfileModel, AnonymousUserData, MyDesignsModel
 
 
 class ShopUserRegistrationForm(BaseUserCreationForm):
@@ -25,5 +26,28 @@ class ShopUserRegistrationForm(BaseUserCreationForm):
 
 
 class ShopUserLoginForm(AuthenticationForm):
+    pass
 
 
+class ViewUserInfo(forms.ModelForm):
+    class Meta:
+        model = ShopUserModel
+        fields = ['first_name', 'last_name', 'email']
+
+
+class ViewProfileInfo(forms.ModelForm):
+    class Meta:
+        model = UserProfileModel
+        fields = ['phone_number', 'address']
+
+
+class ViewAnonymousUserInfo(forms.ModelForm):
+    class Meta:
+        model = AnonymousUserData
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'address']
+
+
+class AddCustomDesigns(forms.ModelForm):
+    class Meta:
+        model = MyDesignsModel
+        fields = ['name', 'image']

@@ -97,12 +97,6 @@ def shopping_cart_view(request):
     return render(request, 'shopping_cart/view_cart.html', context)
 
 
-# def remove_from_shopping_cart(request, cart_item_id):
-#     cart_item = get_object_or_404(CartItem, pk=cart_item_id, user=request.user)
-#     cart_item.delete()
-#     return redirect('view_cart')
-
-
 def shipping_details_view(request):
     form_user = None
     form_profile = None
@@ -112,18 +106,16 @@ def shipping_details_view(request):
     if request.user.is_authenticated:
         user_instance = ShopUserModel.objects.get(id=request.user.id)
         profile_instance = UserProfileModel.objects.get(user=request.user)
-        form_user = ViewUserInfo(instance=user_instance)
-        form_profile = ViewProfileInfo(instance=profile_instance)
+        form_user = ViewUserInfo(request.POST or None, instance=user_instance)
+        form_profile = ViewProfileInfo(request.POST or None, instance=profile_instance)
     else:
         anonymous_instance, _ = AnonymousUserData.objects.get_or_create(session_key=session_key)
-        form_anonymous = ViewAnonymousUserInfo(instance=anonymous_instance)
+        form_anonymous = ViewAnonymousUserInfo(request.POST or None, instance=anonymous_instance)
 
     if request.method == 'POST':
-
         if request.user.is_authenticated:
             user_instance = ShopUserModel.objects.get(id=request.user.id)
             profile_instance = UserProfileModel.objects.get(user=request.user)
-            user = request.user
 
             form_user = ViewUserInfo(request.POST, instance=user_instance)
             form_profile = ViewProfileInfo(request.POST, instance=profile_instance)
@@ -132,9 +124,16 @@ def shipping_details_view(request):
                 form_user.save()
                 form_profile.save()
 
-                order = Orders.objects.create(user=user)
+                order = Orders.objects.create(
+                    user=request.user,
+                    email=request.user.email,
+                    first_name=request.user.first_name,
+                    last_name=request.user.last_name,
+                    address=profile_instance.address,
+                    phone_number=profile_instance.phone_number
+                )
                 order.create_order_items_from_cart(session_key=session_key)
-                ShoppingCartItems.objects.filter(cart__user=user).delete()
+                ShoppingCartItems.objects.filter(cart__user=request.user).delete()
                 return redirect('homepage')
         else:
             form_anonymous = ViewAnonymousUserInfo(request.POST, instance=anonymous_instance)
@@ -142,7 +141,14 @@ def shipping_details_view(request):
             if form_anonymous.is_valid():
                 form_anonymous.save()
 
-                order = Orders.objects.create(anonymous_user_data=anonymous_instance)
+                order = Orders.objects.create(
+                    anonymous_user_data=anonymous_instance,
+                    email=form_anonymous.cleaned_data['email'],
+                    first_name=form_anonymous.cleaned_data['first_name'],
+                    last_name=form_anonymous.cleaned_data['last_name'],
+                    address=form_anonymous.cleaned_data['address'],
+                    phone_number=form_anonymous.cleaned_data['phone_number']
+                )
                 order.create_order_items_from_cart(session_key=session_key)
                 ShoppingCartItems.objects.filter(cart__session_carts__session_key=session_key).delete()
                 return redirect('homepage')
@@ -154,6 +160,7 @@ def shipping_details_view(request):
     }
 
     return render(request, template_name='shopping_cart/shipping-details.html', context=context)
+
 
 
 

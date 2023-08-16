@@ -6,24 +6,16 @@
   <head>
 
     <meta charset="utf-8">
-    <title>T-shirt central</title>
+    <title>T-shirt Central</title>
 
 
-    <!-- Additional CSS Files -->
+    <!-- CSS Files -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/templatemo-t-shirt-shop.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/register_login_style.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/products.css' %}">
-
 
     </head>
     
@@ -45,15 +37,16 @@
                         <!--  Menu Start  -->
                         <ul class="nav">
                             <li><a href="{% url 'homepage' %}">Home</a></li>
-                            <li><a href="#men">Women</a></li>
-                            <li><a href="#women">Men</a></li>
-                            <li><a href="#kids">Kids</a></li>
+                            <li><a href="{% url 'products_women' %}">Women</a></li>
+                            <li><a href="{% url 'products_men' %}">Men</a></li>
+                            <li><a href="{% url 'products_kids' %}">Kids</a></li>
 
                             {% if not request.user.is_authenticated %}
 				            <li><a href="{% url 'register' %}">Register</a></li>
                             <li><a href="{% url 'login' %}">Login</a></li>
                             {% else %}
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="{% url 'user_details_view' %}">Profile</a></li>
+                            <li><a href="{% url 'my_designs' %}">My designs</a></li>
                             <li><a href="{% url 'logout' %}">Logout</a></li>
                             {% endif %}
                             <a href="{% url 'view_cart' %}" style = "margin-left: 20px;">
@@ -81,29 +74,29 @@
     <footer>
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="col-lg-3">
-                    <div class="first-item">
-                        <div class="logo">
+                <div class="col-lg-3" style="margin-right: 50px;">
+                    <div class="first-item" >
+                        <div class="logo" >
                             <img src="{% static 'images/white-logo.png' %}" alt="logo">
                         </div>
-                        <ul>
-                            <li><a href="#">Underground Street 7, Sofia 1000</a></li>
-                            <li><a href="#">office@t-shirt-central.com</a></li>
-                            <li><a href="#">0700 100 100</a></li>
+                        <ul class="plain-text">
+                            <li>Underground Street 7, Sofia 1000</li>
+                            <li>office@t-shirt-central.com</li>
+                            <li>0700 100 100</li>
                         </ul>
                     </div>
                 </div>
-                
-                <div class="col-lg-3" style="margin-top: 20px;">
-                    <h4>Want to know more?</h4>
+
+                <div class="col-lg-3" style="margin-top: 5px;">
+                    <h4 style="margin-bottom: 33px;">Want to know more?</h4>
                     <ul>
                         <li><a href="{% url 'about_us' %}">About Us</a></li>
                         <li><a href="{% url 'careers' %}">Careers</a></li>
                         <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3" style="margin-top: 20px;">
-                    <h4>Need help?</h4>
+                <div class="col-lg-3" style="margin-top: 5px;">
+                    <h4 style="margin-bottom: 33px;">Need help?</h4>
                     <ul>
                         <li><a href="{% url 'faq' %}">FAQ's</a></li>
                         <li><a href="{% url 'shipping_info' %}">Shipping</a></li>
@@ -117,34 +110,25 @@
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                           
+
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    
+
 
     <!-- jQuery -->
     <script src="{% static 'js/jquery-2.1.0.min.js'%}"></script>
 
     <!-- Bootstrap -->
-    <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
     <!-- Plugins -->
     <script src="{% static 'js/owl-carousel.js' %}"></script>
-    <!-- <script src="{% static 'js/accordions.js' %}"></script>
-    <script src="{% static 'js/datepicker.js' %}"></script>
-    <script src="{% static 'js/scrollreveal.min.js' %}"></script>
-    <script src="{% static 'js/waypoints.min.js' %}"></script> -->
     <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <!-- <script src="{% static 'js/imgfix.min.js' %}"></script>
-    <script src="{% static 'js/slick.js' %}"></script>
-    <script src="{% static 'js/lightbox.js' %}"></script>
-    <script src="{% static 'js/isotope.js' %}"></script>-->
-    
+
     <!-- Global Init -->
     <script src="{% static 'js/custom.js' %}"></script>
 

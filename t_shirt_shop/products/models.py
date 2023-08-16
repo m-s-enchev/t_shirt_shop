@@ -31,4 +31,8 @@ class Products(models.Model):
         else:
             return Products.objects.all()
 
+    def __str__(self):
+        return self.name
+
+
 
