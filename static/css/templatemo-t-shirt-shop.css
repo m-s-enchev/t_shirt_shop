@@ -789,9 +789,9 @@ Men
 }
 
 #men .item .down-content h4 {
-  font-size: 20px;
+  font-size: 17px;
   color: #2a2a2a;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -924,9 +924,9 @@ Women
 }
 
 #women .item .down-content h4 {
-  font-size: 20px;
+  font-size: 17px;
   color: #2a2a2a;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -1060,9 +1060,9 @@ Kids
 }
 
 #kids .item .down-content h4 {
-  font-size: 20px;
+  font-size: 17px;
   color: #2a2a2a;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -1307,11 +1307,6 @@ Products Page
 
 
 
-
-
-
-
-
 #products .item .down-content {
   padding-top: 20px;
   position: relative;
@@ -1320,9 +1315,9 @@ Products Page
 }
 
 #products .item .down-content h4 {
-  font-size: 22px;
+  font-size: 17px;
   color: #2a2a2a;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
