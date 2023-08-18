@@ -170,6 +170,8 @@ def shipping_details_view(request):
 
                 create_order_for_anonymous_user(anonymous_instance, form_anonymous, session_key)
                 return redirect('homepage')
+            else:
+                print(form_anonymous.errors)
 
     context = {
         'form_user': form_user,

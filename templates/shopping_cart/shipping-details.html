@@ -6,7 +6,7 @@
 <div id="shipping-details-page" >
 <div class="box">
     <h3>Shipping information</h3>
-    <form method="post">
+    <form method="post" novalidate>
         {% csrf_token %}
             {% if request.user.is_authenticated %}
                 {% for field in form_user %}

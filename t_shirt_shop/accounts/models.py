@@ -3,11 +3,13 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinLengthValidator
 from django.db import models
 
+from t_shirt_shop.accounts.validators import phone_number_validator
+
 
 class UserProfileModel(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=10, validators=[phone_number_validator])
 
 
 class ShopUserModel(AbstractUser):
@@ -34,7 +36,7 @@ class AnonymousUserData(models.Model):
     last_name = models.CharField(max_length=30,
                                  validators=[MinLengthValidator(2)]
                                  )
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=10, validators=[phone_number_validator])
     address = models.CharField(max_length=100)
 
 
