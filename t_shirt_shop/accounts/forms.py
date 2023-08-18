@@ -34,21 +34,21 @@ class ViewUserInfo(forms.ModelForm):
         model = ShopUserModel
         fields = ['first_name', 'last_name', 'email']
 
-    error_messages = {
-        'first_name': {
-            'required': 'Please enter your first name.',
-            'max_length': 'The first name should not exceed 30 characters.',
-        },
-        'last_name': {
-            'required': 'Please enter your last name.',
-            'max_length': 'The last name should not exceed 30 characters.',
-        },
-        'email': {
-            'required': 'Please enter your email address.',
-            'invalid': 'Please enter a valid email address.',
-            'unique': 'This email address is already in use.',
+        error_messages = {
+            'first_name': {
+                'required': 'Please enter your first name.',
+                'max_length': 'The first name should not exceed 30 characters.',
+            },
+            'last_name': {
+                'required': 'Please enter your last name.',
+                'max_length': 'The last name should not exceed 30 characters.',
+            },
+            'email': {
+                'required': 'Please enter your email address.',
+                'invalid': 'Please enter a valid email address.',
+                'unique': 'This email address is already in use.',
+            }
         }
-    }
 
 
 class ViewProfileInfo(forms.ModelForm):
@@ -56,16 +56,16 @@ class ViewProfileInfo(forms.ModelForm):
         model = UserProfileModel
         fields = ['phone_number', 'address']
 
-    error_messages = {
-        'phone_number': {
-            'required': 'Please enter your phone number.',
-            'invalid': 'Please enter a valid phone number.',
-        },
-        'address': {
-            'required': 'Please enter your address.',
-            'max_length': 'The address should not exceed 100 characters.',
-        },
-    }
+        error_messages = {
+            'phone_number': {
+                'required': 'Please enter your phone number.',
+                'invalid': 'Please enter a valid phone number.',
+            },
+            'address': {
+                'required': 'Please enter your address.',
+                'max_length': 'The address should not exceed 100 characters.',
+            },
+        }
 
 
 class ViewAnonymousUserInfo(forms.ModelForm):
@@ -73,32 +73,43 @@ class ViewAnonymousUserInfo(forms.ModelForm):
         model = AnonymousUserData
         fields = ['first_name', 'last_name', 'email', 'phone_number', 'address']
 
-    error_messages = {
-        'first_name': {
-            'required': 'Please enter your first name.',
-            'max_length': 'The first name should not exceed 30 characters.',
-        },
-        'last_name': {
-            'required': 'Please enter your last name.',
-            'max_length': 'The last name should not exceed 30 characters.',
-        },
-        'email': {
-            'required': 'Please enter your email address.',
-            'invalid': 'Please enter a valid email address.',
-            'unique': 'This email address is already in use.',
-        },
-        'phone_number': {
-            'required': 'Please enter your phone number.',
-            'invalid': 'Please enter a valid phone number.',
-        },
-        'address': {
-            'required': 'Please enter your address.',
-            'max_length': 'The address should not exceed 100 characters.',
-        },
-    }
+        error_messages = {
+            'first_name': {
+                'required': 'Please enter your first name.',
+                'max_length': 'The first name should not exceed 30 characters.',
+            },
+            'last_name': {
+                'required': 'Please enter your last name.',
+                'max_length': 'The last name should not exceed 30 characters.',
+            },
+            'email': {
+                'required': 'Please enter your email address.',
+                'invalid': 'Please enter a valid email address.',
+                'unique': 'This email address is already in use.',
+            },
+            'phone_number': {
+                'required': 'Please enter your phone number.',
+                'invalid': 'Please enter a valid phone number.',
+            },
+            'address': {
+                'required': 'Please enter your address.',
+                'max_length': 'The address should not exceed 100 characters.',
+            },
+        }
 
 
 class AddCustomDesigns(forms.ModelForm):
     class Meta:
         model = MyDesignsModel
         fields = ['name', 'image']
+
+        error_messages = {
+            'name': {
+                'required': 'Please provide a name for your design.',
+                'max_length': 'The name should not exceed 50 characters.',
+            },
+            'image': {
+                'required': 'Please select an image for your design.',
+                'invalid_image': 'Please select a valid image file (JPEG, PNG, GIF).',
+            },
+        }

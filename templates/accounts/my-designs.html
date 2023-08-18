@@ -19,7 +19,7 @@
                 <!-- Form to add a new design -->
 <div class = "add-design-box">
     <h3>Add New Design</h3>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {% for field in form %}
                     <div style="margin-top: 15px;">
