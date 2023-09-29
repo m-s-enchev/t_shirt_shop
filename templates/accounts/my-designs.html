@@ -5,53 +5,42 @@
 {% block content %}
 
 
-
-
-
-
-
 <!-- Product Area Starts -->
     <section class="section" id="product">
         <div class="container">
+            <!-- Form to add a new design -->
+            <div class = "add-design-box">
+                <h3>Add New Design</h3>
+                <form method="post" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    {% for field in form %}
+                                <div style="margin-top: 15px;">
+                                    <div style="font-weight: bold;">
+                                    {{ field.label }}
+                                    </div>
+                                    {{ field.errors }}
+                                    {{ field }}
+                                </div>
+                            {% endfor %}
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
 
+            <hr>
 
-
-                <!-- Form to add a new design -->
-<div class = "add-design-box">
-    <h3>Add New Design</h3>
-    <form method="post" enctype="multipart/form-data" novalidate>
-        {% csrf_token %}
-        {% for field in form %}
-                    <div style="margin-top: 15px;">
-                        <div style="font-weight: bold;">
-                        {{ field.label }}
-                        </div>
-                        {{ field.errors }}
-                        {{ field }}
+            <div class="my-designs">
+                <h3>My Designs</h3>
+                <div class="gallery">
+                    {% for design in designs %}
+                    <div style="width: 33.33%; padding: 20px;">
+                    <div class ="image-container" >
+                        <img src="{{ design.image.url }}" alt="{{ design.name }}" style="max-width: 100%;">
                     </div>
-                {% endfor %}
-        <button type="submit">Upload</button>
-    </form>
-</div>
-
-<hr>
-
-<div class="my-designs">
-    <h3>My Designs</h3>
-    <div class="gallery">
-        {% for design in designs %}
-        <div style="width: 33.33%; padding: 20px;">
-        <div class ="image-container" >
-            <img src="{{ design.image.url }}" alt="{{ design.name }}" style="max-width: 100%;">
-        </div>
-            <p>{{ design.name }}</p>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-
-
-
+                        <p>{{ design.name }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
 
         </div>
     </section>
