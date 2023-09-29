@@ -3,32 +3,33 @@
 {% load static %}
 
 {% block content %}
-<div id="shipping-details-page" >
-<div class="box">
-    <h3>Profile information</h3>
-    <form method="post">
-        {% csrf_token %}
-                {% for field in form_user %}
-                    <div style="margin-top: 15px;">
-                        <div style="font-weight: bold;">
-                        {{ field.label }}
-                        </div>
-                        {{ field.errors }}
-                        {{ field }}
-                    </div>
-                {% endfor %}
-                {% for field in form_profile %}
-                     <div style="margin-top: 15px;">
-                        <div style="font-weight: bold;">
-                        {{ field.label }}
-                        </div>
-                        {{ field.errors }}
-                        {{ field }}
-                    </div>
-                {% endfor %}
 
-        <button type="submit">Update</button>
-    </form>
-</div>
+<div id="shipping-details-page" >
+    <div class="box">
+        <h3>Profile information</h3>
+        <form method="post">
+            {% csrf_token %}
+                    {% for field in form_user %}
+                        <div style="margin-top: 15px;">
+                            <div style="font-weight: bold;">
+                            {{ field.label }}
+                            </div>
+                            {{ field.errors }}
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                    {% for field in form_profile %}
+                         <div style="margin-top: 15px;">
+                            <div style="font-weight: bold;">
+                            {{ field.label }}
+                            </div>
+                            {{ field.errors }}
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
