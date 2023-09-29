@@ -4,43 +4,43 @@
 
 {% block content %}
 <div id="shipping-details-page" >
-<div class="box">
-    <h3>Shipping information</h3>
-    <form method="post" novalidate>
-        {% csrf_token %}
-            {% if request.user.is_authenticated %}
-                {% for field in form_user %}
-                    <div style="margin-top: 15px;">
-                        <div style="font-weight: bold;">
-                        {{ field.label }}
+    <div class="box">
+        <h3>Shipping information</h3>
+        <form method="post" novalidate>
+            {% csrf_token %}
+                {% if request.user.is_authenticated %}
+                    {% for field in form_user %}
+                        <div style="margin-top: 15px;">
+                            <div style="font-weight: bold;">
+                            {{ field.label }}
+                            </div>
+                            {{ field.errors }}
+                            {{ field }}
                         </div>
-                        {{ field.errors }}
-                        {{ field }}
-                    </div>
-                {% endfor %}
-                {% for field in form_profile %}
-                     <div style="margin-top: 15px;">
-                        <div style="font-weight: bold;">
-                        {{ field.label }}
+                    {% endfor %}
+                    {% for field in form_profile %}
+                         <div style="margin-top: 15px;">
+                            <div style="font-weight: bold;">
+                            {{ field.label }}
+                            </div>
+                            {{ field.errors }}
+                            {{ field }}
                         </div>
-                        {{ field.errors }}
-                        {{ field }}
-                    </div>
-                {% endfor %}
-            {% else %}
-                 {% for field in form_anonymous %}
-                     <div style="margin-top: 15px;">
-                        <div style="font-weight: bold;">
-                        {{ field.label }}
+                    {% endfor %}
+                {% else %}
+                     {% for field in form_anonymous %}
+                         <div style="margin-top: 15px;">
+                            <div style="font-weight: bold;">
+                            {{ field.label }}
+                            </div>
+                            {{ field.errors }}
+                            {{ field }}
                         </div>
-                        {{ field.errors }}
-                        {{ field }}
-                    </div>
-                {% endfor %}
-            {% endif %}
+                    {% endfor %}
+                {% endif %}
 
-        <button type="submit">Place order</button>
-    </form>
-</div>
+            <button type="submit">Place order</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
