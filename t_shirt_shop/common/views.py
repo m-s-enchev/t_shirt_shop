@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView
 
 from t_shirt_shop.products.models import Products
