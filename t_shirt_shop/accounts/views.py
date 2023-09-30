@@ -2,7 +2,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
-from django.views.generic import DetailView
+
 
 from t_shirt_shop.accounts.forms import ShopUserRegistrationForm, ShopUserLoginForm, ViewUserInfo, ViewProfileInfo, \
     AddCustomDesigns
