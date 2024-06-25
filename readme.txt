@@ -6,3 +6,4 @@ The project is an online store for custom t-shirts.
 There is an assortment of ready-made t-shirts, that both registered and unregistered users can buy.
 But there is also a "My designs" section visible only to registered users.
 There they can upload their own designs.
+I uses sessoin to mantain a users shopping cart even for unauthenticated users.
